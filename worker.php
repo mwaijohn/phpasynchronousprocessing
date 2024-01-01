@@ -9,8 +9,6 @@ $channel = $connection->channel();
 
 $channel->queue_declare('task_queue', false, true, false, false);
 
-echo ' [*] Waiting for messages. To exit press Ctrl+C', "\n";
-
 $callback = function ($msg) {
     echo " [x] Received ", $msg->body, "\n";
     sleep(substr_count($msg->body, '.'));
